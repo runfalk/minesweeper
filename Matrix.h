@@ -1,7 +1,6 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-#include <limits>
 #include <vector>
 
 #include "Coordinate.h"

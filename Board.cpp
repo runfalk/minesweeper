@@ -98,8 +98,17 @@ Tile Board::open(unsigned int x, unsigned int y) {
 	return tile;
 }
 
+Tile Board::get(unsigned int x, unsigned int y) {
+	return this->tiles.get(x, y);
+}
+
 GameStatus Board::get_status() {
-	return this->status;
+	return {
+		this->status,
+		this->num_mines,
+		this->num_open_tiles,
+		this->get_width() * this->get_height(),
+	};
 }
 
 

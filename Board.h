@@ -3,10 +3,18 @@
 
 #include "Matrix.h"
 
-enum GameStatus {
+enum GameState {
 	PLAYING,
 	WIN,
 	LOSE,
+};
+
+
+struct GameStatus {
+	GameState state;
+	unsigned int num_mines;
+	unsigned int num_open_tiles;
+	unsigned int num_tiles;
 };
 
 
@@ -44,12 +52,13 @@ public:
 	unsigned int get_height();
 	GameStatus get_status();
 	Tile open(unsigned int, unsigned int);
+	Tile get(unsigned int, unsigned int);
 	void render(bool);
 private:
 	Matrix<Tile> tiles;
 	unsigned int num_mines = 0;
 	unsigned int num_open_tiles = 0;
-	GameStatus status = PLAYING;
+	GameState status = PLAYING;
 };
 
 #endif
